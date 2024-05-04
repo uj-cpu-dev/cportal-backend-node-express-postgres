@@ -9,6 +9,8 @@ var indexRouter = require('./routes/index');
 var customersRouter = require('./routes/customers');
 var eachCustomerRouter = require('./routes/eachCustomer');
 var createNewCustomer = require('./routes/createNewCustomer');
+var updateCustomer = require('./routes/updateSavedCustomer');
+var deleteCustomer = require('./routes/deleteSavedCustomer');
 
 var app = express();
 
@@ -26,6 +28,8 @@ app.use('/', indexRouter);
 app.use('/customers', customersRouter);
 app.use('/customers', eachCustomerRouter);
 app.use('/customers', createNewCustomer);
+app.use('/customers', updateCustomer);
+app.use('/customers', deleteCustomer);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
