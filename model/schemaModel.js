@@ -18,38 +18,36 @@ const CustomerModel = sequelize.define("customersList", {
     },
     phone: {
         type: DataTypes.STRING(100),
-        allowNull: false,
+        allowNull: true,
         unique: true,
     },
     company_name: {
         type: DataTypes.STRING(100),
-        allowNull: false,
+        allowNull: true,
         unique: true,
     },
     quota: {
         type: DataTypes.INTEGER,
-        allowNull: false,
+        allowNull: true,
         unique: true,
     },
     address: {
         type: DataTypes.JSON,
-        defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: true,
     },
     orders: {
         type: DataTypes.JSON,
-        allowNull: false,
-        unique: true,
+        allowNull: true,
     },
     createdAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: true,
     },
     updatedAt: {
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW,
-        allowNull: false,
+        allowNull: true,
     },
 },  {
     tableName: "customersList"
