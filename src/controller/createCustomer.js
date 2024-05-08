@@ -3,8 +3,6 @@ var CustomerModel = require('../model/schemaModel')
 const createCustomerController = async (req, res) => {
     try {
 
-        const { id, name, email } = req.body;
-
         const customer = await CustomerModel.create(req.body);
 
         res.status(201).json({
