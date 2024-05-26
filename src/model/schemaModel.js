@@ -2,8 +2,8 @@ var { sequelize, DataTypes } = require('../db');
 
 const CustomerModel = sequelize.define("customersList", {
     id: {
-        type: DataTypes.UUID,
-        defaultValue: DataTypes.UUIDV4,
+        type: DataTypes.INTEGER,
+        defaultValue: DataTypes.INTEGER,
         primaryKey: true,
     },
     name: {
