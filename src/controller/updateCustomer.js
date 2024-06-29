@@ -2,8 +2,22 @@ var CustomerModel = require('../model/schemaModel')
 
 const updateCustomerController = async (req, res) => {
     try {
+        const { id, name, email, phone, address, quota } = req.body;
+        const file = req.file;
+        const customerData = {
+            id : parseInt(id),
+            name,
+            email,
+            phone,
+            address,
+            quota: parseInt(quota),
+            filename: file ? file.originalname : null,
+            filetype: file ? file.mimetype : null,
+            filedata: file ? file.buffer : null,
+            updatedAt: new Date(),
+        };
         const result = await CustomerModel.update(
-            { ...req.body, updatedAt: Date.now() },
+            customerData,
             {
                 where: {
                     id: req.params.id,

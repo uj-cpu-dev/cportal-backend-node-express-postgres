@@ -2,17 +2,31 @@ var CustomerModel = require('../model/schemaModel')
 
 const createCustomerController = async (req, res) => {
     try {
+        const { id, name, email, phone, address, quota } = req.body;
+        const file = req.file;
 
-        const customer = await CustomerModel.create(req.body);
+        const customerData = {
+            id : parseInt(id),
+            name,
+            email,
+            phone,
+            address,
+            createdAt: new Date(),
+            quota: parseInt(quota),
+            filename: file ? file.originalname : null,
+            filetype: file ? file.mimetype : null,
+            filedata: file ? file.buffer : null,
+        };
+
+        const customer = await CustomerModel.create(customerData);
 
         res.status(201).json({
             status: "success",
             data: {
-              customer,
+                customer,
             },
         });
     } catch (error) {
-        //can't record customer with the same name
         if (error.name === "SequelizeUniqueConstraintError") {
             return res.status(409).json({
                 status: "error",

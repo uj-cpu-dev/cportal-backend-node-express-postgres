@@ -29,13 +29,8 @@ const CustomerModel = sequelize.define("customersList", {
     quota: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        unique: true,
     },
     address: {
-        type: DataTypes.JSON,
-        allowNull: true,
-    },
-    orders: {
         type: DataTypes.JSON,
         allowNull: true,
     },
@@ -49,8 +44,20 @@ const CustomerModel = sequelize.define("customersList", {
         defaultValue: DataTypes.NOW,
         allowNull: true,
     },
+    filename: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+    },
+    filetype: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+    },
+    filedata: {
+        type: DataTypes.BLOB('long'),
+        allowNull: true,
+    },
 },  {
-    tableName: "customersList"
+    tableName: "customersPortal"
 });
 
 module.exports = CustomerModel
