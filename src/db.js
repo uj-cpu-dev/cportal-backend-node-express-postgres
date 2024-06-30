@@ -1,7 +1,7 @@
 require("dotenv").config();
 const { Sequelize, DataTypes } = require("sequelize");
 
-const POSTGRES_URL = "postgres://postgres:Winner12@@localhost:5433/customers";
+const POSTGRES_URL = "postgres://postgres:password@postgres-service:5432/postgres";
 
 const sequelize = new Sequelize(POSTGRES_URL, {
     dialect: 'postgres' // Specify the dialect as 'postgres'
